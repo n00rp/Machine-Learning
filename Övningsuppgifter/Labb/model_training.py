@@ -11,7 +11,7 @@ import pandas as pd
 import os
 
 # Logistic regression
-
+"""
 param_grid_linearregression = {
     'C': [0.001, 0.01, 0.1, 1, 10, 100],
     'penalty': ['l1', 'l2']
@@ -40,26 +40,13 @@ param_grid_dt = {
     
 }
 
+"""
 
 
-# Lägg till fler parametergrids för andra modeller...
 
 # Definiera träningsfunktionen
 def train_and_evaluate_model(model, param_grid, X_train, y_train, X_val, y_val, X_test, y_test, model_name, save_results=False, filename="evaluation_scores.csv"):
 
-    """
-    Funktion för att träna och utvärdera en modell med GridSearchCV.
-    
-    :param model: Modell som ska tränas (t.ex. RandomForestClassifier, LogisticRegression)
-    :param param_grid: Hyperparametrar för GridSearchCV
-    :param X_train, y_train: Träningsdata
-    :param X_val, y_val: Valideringsdata
-    :param X_test, y_test: Testdata
-    :param model_name: Namn på modellen (t.ex. "Random Forest", "Logistic Regression")
-    :param save_results: Om True, spara resultaten i en CSV-fil
-    :param filename: Namn på filen där resultaten ska sparas
-    :return: Bästa modellen, accuracy på valideringsdata, accuracy på testdata
-    """
     # Använd GridSearchCV för att hitta bästa hyperparametrar
     grid_search = GridSearchCV(estimator=model, param_grid=param_grid, scoring='accuracy', cv=5)
     grid_search.fit(X_train, y_train)
