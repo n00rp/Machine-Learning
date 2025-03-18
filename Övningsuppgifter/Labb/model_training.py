@@ -13,30 +13,30 @@ import os
 # Logistic regression
 
 param_grid_linearregression = {
-    'C': [0.001, 0.01, 0.1, 1, 10, 100],
-    'penalty': ['l1', 'l2']
+    'C': [0.1, 0.5, 1, 10, 100], # Ett mindre värde på C innebär starkare regularisering
+    'penalty': ['l1', 'l2'] # Bestämmer om koefficienterna kan bli satta till 0 eller inte
 }
 
 # XGBoost (eXtreme Gradient Boosting)
 
 param_grid_xgboost = {
-    'learning_rate': [0.001, 0.01, 0.1, 0.2],
-    'max_depth': [3, 5, 7, 9],
-    'n_estimators': [50, 100, 200]
+    'learning_rate': [0.001, 0.01, 0.1, 0.2], # Inlärningstakten, hur snabbt modellen anpassar sig under träning
+    'max_depth': [3, 5, 7, 9], # Hur djupt varje träd är och hur komplext det får vara
+    'n_estimators': [50, 100, 200] # Antalet träd som det får vara
 }
 
 # KNN - KNeighborsClassifier
 
 param_grid_knn = {
-    'n_neighbors': [3, 5, 7, 9, 11, 13],  # Antal grannar
+    'n_neighbors': [5, 7, 9, 11, 13],  # Antal grannar
     'weights': ['uniform', 'distance'],  # Vikter för grannar
     'p': [1, 2]  # Distansmått (1 = Manhattan, 2 = Euclidean)
 }
 
 param_grid_dt = {
-    'max_depth': [3, 5, 7, 10, 15, 20],  # Maximalt djup för trädet
-    'min_samples_split': [2, 5, 10, 20],  # Minsta antal sampel för att dela en nod
-    'min_samples_leaf': [1, 2, 4, 8]  # Minsta antal sampel i ett löv
+    'max_depth': [4, 5, 6, 7, 8, 9, 10],  # Maximalt djup för trädet
+    'min_samples_split': [3, 5, 6, 7,10, 20],  # Minsta antal sampel för att dela en nod
+    'min_samples_leaf': [2, 3, 4, 5, 6, 7, 8]  # Minsta antal sampel i ett löv
     
 }
 

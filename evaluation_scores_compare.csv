@@ -1,0 +1,17 @@
+Model,Best Parameters,Validation Accuracy,Test Accuracy
+XGBoost med standardiserad data,"{'learning_rate': 0.2, 'max_depth': 3, 'n_estimators': 100}",0.710948905109489,0.7065693430656934
+XGBoost med normaliserad data,"{'learning_rate': 0.001, 'max_depth': 3, 'n_estimators': 50}",0.5081751824817519,0.5055474452554745
+Logistic Regression med standardiserad data,"{'C': 0.1, 'penalty': 'l1'}",0.7102189781021898,0.7065693430656934
+Logistic Regression med normaliserad data,"{'C': 0.001, 'penalty': 'l1'}",0.5081751824817519,0.5055474452554745
+KNN med standardiserad data,"{'n_neighbors': 13, 'p': 1, 'weights': 'uniform'}",0.6916788321167883,0.6808759124087591
+KNN med normaliserad data,"{'n_neighbors': 11, 'p': 1, 'weights': 'uniform'}",0.5056934306569343,0.4985401459854015
+Decision Tree med standardiserad data,"{'max_depth': 7, 'min_samples_leaf': 4, 'min_samples_split': 10}",0.7054014598540146,0.7023357664233577
+Decision Tree med normaliserad data,"{'max_depth': 3, 'min_samples_leaf': 1, 'min_samples_split': 2}",0.5087591240875913,0.5056934306569343
+XGBoost med standardiserad data från DF2,"{'learning_rate': 0.001, 'max_depth': 7, 'n_estimators': 200}",0.5064233576642336,0.5100729927007299
+XGBoost med normaliserad data från DF2,"{'learning_rate': 0.1, 'max_depth': 3, 'n_estimators': 200}",0.7087591240875912,0.5271532846715329
+Logistic Regression med standardiserad data från DF2,"{'C': 0.001, 'penalty': 'l2'}",0.5071532846715329,0.5018978102189781
+Logistic Regression med normaliserad data från DF2,"{'C': 0.01, 'penalty': 'l1'}",0.7055474452554744,0.5278832116788321
+KNN med standardiserad data från DF2,"{'n_neighbors': 11, 'p': 1, 'weights': 'uniform'}",0.5058394160583941,0.501021897810219
+KNN med normaliserad data från DF2,"{'n_neighbors': 13, 'p': 2, 'weights': 'uniform'}",0.7188321167883212,0.6194160583941606
+Decision Tree med standardiserad data från DF2,"{'max_depth': 10, 'min_samples_leaf': 2, 'min_samples_split': 5}",0.4981021897810219,0.5096350364963503
+Decision Tree med normaliserad data från DF2,"{'max_depth': 7, 'min_samples_leaf': 1, 'min_samples_split': 5}",0.7051094890510949,0.6826277372262773
