@@ -11,7 +11,7 @@ import pandas as pd
 import os
 
 # Logistic regression
-"""
+
 param_grid_linearregression = {
     'C': [0.001, 0.01, 0.1, 1, 10, 100],
     'penalty': ['l1', 'l2']
@@ -40,7 +40,7 @@ param_grid_dt = {
     
 }
 
-"""
+
 
 
 
