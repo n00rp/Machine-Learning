@@ -90,142 +90,77 @@ def train_and_evaluate_model(model, param_grid, X_train, y_train, X_val, y_val, 
 
 
 # Träna modeller
-def train_models(X_train_std, X_train_norm, X2_train_std, X2_train_norm, y_train, y2_train, X_val_std, X_val_norm, 
-                X2_val_std, X2_val_norm, y_val, y2_val, X_test_std, X_test_norm, X2_test_std, X2_test_norm, y_test, y2_test):
-    # XGBoost
-    xgb_model = XGBClassifier(random_state=42)
-    best_xgb_model, xgb_val_accuracy, xgb_test_accuracy = train_and_evaluate_model(
-        model=xgb_model,
-        param_grid=param_grid_xgboost,
-        X_train=X_train_std,
-        y_train=y_train,
-        X_val=X_val_std,
-        y_val=y_val,
-        X_test=X_test_std,
-        y_test=y_test,
-        model_name="XGBoost med standardiserad data",
-        save_results=True,
-        filename="evaluation_scores.csv"
-    )
-    
-    # XGBoost på normaliserad data
 
+
+def train_models(X_train_scaled, X2_train_scaled, y_train, y2_train, X_val_scaled, 
+                y_val, y2_val, X2_test_scaled, y_test, y2_test, X_test_scaled, X2_val_scaled):
+    # XGBoost
+    
+    # XGBoost med data från DF1
+    xgb_model = XGBClassifier(random_state=42)
     best_xgb_model_norm, xgb_val_accuracy_norm, xgb_test_accuracy_norm = train_and_evaluate_model(
         model=xgb_model,
         param_grid=param_grid_xgboost,
-        X_train=X_train_norm,
+        X_train=X_train_scaled,
         y_train=y_train,
-        X_val=X_val_norm,
+        X_val=X_val_scaled,
         y_val=y_val,
-        X_test=X_test_norm,
+        X_test=X_test_scaled,
         y_test=y_test,
-        model_name="XGBoost med normaliserad data",
+        model_name="XGBoost med data från DF1",
         save_results=True,
         filename="evaluation_scores.csv"
     )
-    # Logistic Regression - Standardiserad data
-    
+
+    # Logistic Regression med data från DF1
 
     log_reg_model = LogisticRegression(random_state=42, solver='liblinear')
     best_log_reg_model, log_reg_val_accuracy, log_reg_test_accuracy = train_and_evaluate_model(
         model=log_reg_model,
         param_grid=param_grid_linearregression,
-        X_train=X_train_std,
+        X_train=X_train_scaled,
         y_train=y_train,
-        X_val=X_val_std,
+        X_val=X_val_scaled,
         y_val=y_val,
-        X_test=X_test_std,
+        X_test=X_test_scaled,
         y_test=y_test,
-        model_name="Logistic Regression med standardiserad data",
-        save_results=True,
-        filename="evaluation_scores.csv"
-    )
-
-    # Logistic Regression på normaliserad data
-
-    log_reg_model = LogisticRegression(random_state=42, solver='liblinear')
-    best_log_reg_model, log_reg_val_accuracy, log_reg_test_accuracy = train_and_evaluate_model(
-        model=log_reg_model,
-        param_grid=param_grid_linearregression,
-        X_train=X_train_norm,
-        y_train=y_train,
-        X_val=X_val_norm,
-        y_val=y_val,
-        X_test=X_test_norm,
-        y_test=y_test,
-        model_name="Logistic Regression med normaliserad data",
+        model_name="Logistic Regression med data från DF1",
         save_results=True,
         filename="evaluation_scores.csv"
     )
 
 
-    # KNN - KNeighborsClassifier - Standardiserad data
-
+    # KNN - KNeighborsClassifier med data från DF1
 
     knn_model = KNeighborsClassifier()
     best_knn_model, knn_val_accuracy, knn_test_accuracy = train_and_evaluate_model(
         model=knn_model,
         param_grid=param_grid_knn,
-        X_train=X_train_std,
+        X_train=X_train_scaled,
         y_train=y_train,
-        X_val=X_val_std,
+        X_val=X_val_scaled,
         y_val=y_val,
-        X_test=X_test_std,
+        X_test=X_test_scaled,
         y_test=y_test,
-        model_name="KNN med standardiserad data",
+        model_name="KNN med data Från DF1",
         save_results=True,
         filename="evaluation_scores.csv"
     )
 
-    # KNN - KNeighborsClassifier på normaliserad data
 
-    knn_model = KNeighborsClassifier()
-    best_knn_model, knn_val_accuracy, knn_test_accuracy = train_and_evaluate_model(
-        model=knn_model,
-        param_grid=param_grid_knn,
-        X_train=X_train_norm,
-        y_train=y_train,
-        X_val=X_val_norm,
-        y_val=y_val,
-        X_test=X_test_norm,
-        y_test=y_test,
-        model_name="KNN med normaliserad data",
-        save_results=True,
-        filename="evaluation_scores.csv"
-    )
-
-    # Decision Tree - Standardiserad data
-
-    from sklearn.tree import DecisionTreeClassifier
+    # Decision Tree med data från DF1
 
     dt_model = DecisionTreeClassifier(random_state=42)
     best_dt_model, dt_val_accuracy, dt_test_accuracy = train_and_evaluate_model(
         model=dt_model,
         param_grid=param_grid_dt,
-        X_train=X_train_std,
+        X_train=X_train_scaled,
         y_train=y_train,
-        X_val=X_val_std,
+        X_val=X_val_scaled,
         y_val=y_val,
-        X_test=X_test_std,
+        X_test=X_test_scaled,
         y_test=y_test,
-        model_name="Decision Tree med standardiserad data",
-        save_results=True,
-        filename="evaluation_scores.csv"
-    )
-
-    # Decision Tree på normaliserad data
-
-    dt_model = DecisionTreeClassifier(random_state=42)
-    best_dt_model, dt_val_accuracy, dt_test_accuracy = train_and_evaluate_model(
-        model=dt_model,
-        param_grid=param_grid_dt,
-        X_train=X_train_norm,
-        y_train=y_train,
-        X_val=X_val_norm,
-        y_val=y_val,
-        X_test=X_test_norm,
-        y_test=y_test,
-        model_name="Decision Tree med normaliserad data",
+        model_name="Decision Tree med data DF1",
         save_results=True,
         filename="evaluation_scores.csv"
     )
@@ -233,192 +168,73 @@ def train_models(X_train_std, X_train_norm, X2_train_std, X2_train_norm, y_train
 
 # Samma modeller fast för DF2
 
-    
-    # XGBoost - Standardiserad data för DF2
-    
-
-    xgb_model = XGBClassifier(random_state=42)
-    best_xgb_model, xgb_val_accuracy, xgb_test_accuracy = train_and_evaluate_model(
-        model=xgb_model,
-        param_grid=param_grid_xgboost,
-        X_train=X2_train_std,
-        y_train=y2_train,
-        X_val=X2_val_std,
-        y_val=y2_val,
-        X_test=X2_test_std,
-        y_test=y2_test,
-        model_name="XGBoost med standardiserad data från DF2",
-        save_results=True,
-        filename="evaluation_scores.csv"
-    )
-
-    # XGBoost på normaliserad data för DF2
+    # XGBoost med data för DF2
 
     best_xgb_model_norm, xgb_val_accuracy_norm, xgb_test_accuracy_norm = train_and_evaluate_model(
         model=xgb_model,
         param_grid=param_grid_xgboost,
-        X_train=X2_train_norm,
+        X_train=X2_train_scaled,
         y_train=y2_train,
-        X_val=X2_val_norm,
+        X_val=X2_val_scaled,
         y_val=y2_val,
-        X_test=X2_test_norm,
+        X_test=X2_test_scaled,
         y_test=y2_test,
-        model_name="XGBoost med normaliserad data från DF2",
+        model_name="XGBoost med data från DF2",
         save_results=True,
         filename="evaluation_scores.csv"
     )
 
-    # Logistic Regression - Standardiserad data för DF2
+
+    # Logistic Regression med data för DF2
 
     log_reg_model = LogisticRegression(random_state=42, solver='liblinear')
     best_log_reg_model, log_reg_val_accuracy, log_reg_test_accuracy = train_and_evaluate_model(
         model=log_reg_model,
         param_grid=param_grid_linearregression,
-        X_train=X2_train_std,
+        X_train=X2_train_scaled,
         y_train=y2_train,
-        X_val=X2_val_std,
+        X_val=X2_val_scaled,
         y_val=y2_val,
-        X_test=X2_test_std,
+        X_test=X2_test_scaled,
         y_test=y2_test,
-        model_name="Logistic Regression med standardiserad data från DF2",
-        save_results=True,
-        filename="evaluation_scores.csv"
-    )
-
-      # Logistic Regression på normaliserad data för DF2
-
-    best_log_reg_model_norm, log_reg_val_accuracy_norm, log_reg_test_accuracy_norm = train_and_evaluate_model(
-        model=log_reg_model,
-        param_grid=param_grid_linearregression,
-        X_train=X2_train_norm,
-        y_train=y2_train,
-        X_val=X2_val_norm,
-        y_val=y2_val,
-        X_test=X2_test_norm,
-        y_test=y2_test,
-        model_name="Logistic Regression med normaliserad data från DF2",
+        model_name="Logistic Regression med data från DF2",
         save_results=True,
         filename="evaluation_scores.csv"
     )
 
 
-    # Logistic Regression - Standardiserad data för DF2
-
-    log_reg_model = LogisticRegression(random_state=42, solver='liblinear')
-    best_log_reg_model, log_reg_val_accuracy, log_reg_test_accuracy = train_and_evaluate_model(
-        model=log_reg_model,
-        param_grid=param_grid_linearregression,
-        X_train=X2_train_std,
-        y_train=y2_train,
-        X_val=X2_val_std,
-        y_val=y2_val,
-        X_test=X2_test_std,
-        y_test=y2_test,
-        model_name="Logistic Regression med standardiserad data från DF2",
-        save_results=True,
-        filename="evaluation_scores.csv"
-    )
-
-    # Logistic Regression på normaliserad data för DF2
-
-    log_reg_model = LogisticRegression(random_state=42, solver='liblinear')
-    best_log_reg_model, log_reg_val_accuracy, log_reg_test_accuracy = train_and_evaluate_model(
-        model=log_reg_model,
-        param_grid=param_grid_linearregression,
-        X_train=X2_train_norm,
-        y_train=y2_train,
-        X_val=X2_val_norm,
-        y_val=y2_val,
-        X_test=X2_test_norm,
-        y_test=y2_test,
-        model_name="Logistic Regression med normaliserad data från DF2",
-        save_results=True,
-        filename="evaluation_scores.csv"
-    )
-
-
-# KNN - KNeighborsClassifier - Standardiserad data för DF2
+# KNN - KNeighborsClassifier med data för DF2
 
     knn_model = KNeighborsClassifier()
     best_knn_model, knn_val_accuracy, knn_test_accuracy = train_and_evaluate_model(
         model=knn_model,
         param_grid=param_grid_knn,
-        X_train=X2_train_std,
+        X_train=X2_train_scaled,
         y_train=y2_train,
-        X_val=X2_val_std,
+        X_val=X2_val_scaled,
         y_val=y2_val,
-        X_test=X2_test_std,
+        X_test=X2_test_scaled,
         y_test=y2_test,
-        model_name="KNN med standardiserad data från DF2",
-        save_results=True,
-        filename="evaluation_scores.csv"
-    )
-
-# KNN - KNeighborsClassifier på normaliserad data för DF2
-
-    knn_model = KNeighborsClassifier()
-    best_knn_model, knn_val_accuracy, knn_test_accuracy = train_and_evaluate_model(
-        model=knn_model,
-        param_grid=param_grid_knn,
-        X_train=X2_train_norm,
-        y_train=y2_train,
-        X_val=X2_val_norm,
-        y_val=y2_val,
-        X_test=X2_test_norm,
-        y_test=y2_test,
-        model_name="KNN med normaliserad data från DF2",
+        model_name="KNN med data från DF2",
         save_results=True,
         filename="evaluation_scores.csv"
     )
 
 
-    # Decision Tree - Standardiserad data för DF2
+    # Decision Tree med data för DF2
 
     dt_model = DecisionTreeClassifier(random_state=42)
     best_dt_model, dt_val_accuracy, dt_test_accuracy = train_and_evaluate_model(
         model=dt_model,
         param_grid=param_grid_dt,
-        X_train=X2_train_std,
+        X_train=X2_train_scaled,
         y_train=y2_train,
-        X_val=X2_val_std,
+        X_val=X2_val_scaled,
         y_val=y2_val,
-        X_test=X2_test_std,
+        X_test=X2_test_scaled,
         y_test=y2_test,
-        model_name="Decision Tree med standardiserad data från DF2",
+        model_name="Decision Tree med data från DF2",
         save_results=True,
         filename="evaluation_scores.csv"
     )
 
-    # Decision Tree på normaliserad data för DF2
-
-    dt_model = DecisionTreeClassifier(random_state=42)
-    best_dt_model, dt_val_accuracy, dt_test_accuracy = train_and_evaluate_model(
-        model=dt_model,
-        param_grid=param_grid_dt,
-        X_train=X2_train_norm,
-        y_train=y2_train,
-        X_val=X2_val_norm,
-        y_val=y2_val,
-        X_test=X2_test_norm,
-        y_test=y2_test,
-        model_name="Decision Tree med normaliserad data från DF2",
-        save_results=True,
-        filename="evaluation_scores.csv"
-    )
-
-# Decision Tree på normaliserad data för DF2
-
-    dt_model = DecisionTreeClassifier(random_state=42)
-    best_dt_model, dt_val_accuracy, dt_test_accuracy = train_and_evaluate_model(
-        model=dt_model,
-        param_grid=param_grid_dt,
-        X_train=X2_train_norm,
-        y_train=y2_train,
-        X_val=X2_val_norm,
-        y_val=y2_val,
-        X_test=X2_test_norm,
-        y_test=y2_test,
-        model_name="Decision Tree med normaliserad data från DF2",
-        save_results=True,
-        filename="evaluation_scores.csv"
-    )

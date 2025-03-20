@@ -1,17 +1,9 @@
 Model,Best Parameters,Validation Accuracy,Test Accuracy
-XGBoost med standardiserad data,"{'learning_rate': 0.2, 'max_depth': 3, 'n_estimators': 100}",0.710948905109489,0.7065693430656934
-XGBoost med normaliserad data,"{'learning_rate': 0.001, 'max_depth': 9, 'n_estimators': 200}",0.5054014598540146,0.5102189781021897
-Logistic Regression med standardiserad data,"{'C': 0.1, 'penalty': 'l1'}",0.7102189781021898,0.7065693430656934
-Logistic Regression med normaliserad data,"{'C': 0.1, 'penalty': 'l1'}",0.5105109489051095,0.5024817518248175
-KNN med standardiserad data,"{'n_neighbors': 13, 'p': 1, 'weights': 'uniform'}",0.6916788321167883,0.6808759124087591
-KNN med normaliserad data,"{'n_neighbors': 13, 'p': 1, 'weights': 'uniform'}",0.4937226277372263,0.5036496350364964
-Decision Tree med standardiserad data,"{'max_depth': 6, 'min_samples_leaf': 5, 'min_samples_split': 3}",0.7045255474452555,0.7043795620437956
-Decision Tree med normaliserad data,"{'max_depth': 4, 'min_samples_leaf': 2, 'min_samples_split': 3}",0.5033576642335766,0.5068613138686131
-XGBoost med standardiserad data från DF2,"{'learning_rate': 0.001, 'max_depth': 7, 'n_estimators': 200}",0.5027737226277372,0.5018978102189781
-XGBoost med normaliserad data från DF2,"{'learning_rate': 0.2, 'max_depth': 3, 'n_estimators': 100}",0.7297810218978102,0.5884671532846716
-Logistic Regression med standardiserad data från DF2,"{'C': 0.1, 'penalty': 'l1'}",0.4918248175182482,0.5002919708029198
-Logistic Regression med normaliserad data från DF2,"{'C': 1, 'penalty': 'l1'}",0.7248175182481752,0.49708029197080295
-KNN med standardiserad data från DF2,"{'n_neighbors': 11, 'p': 1, 'weights': 'uniform'}",0.5033576642335766,0.4905109489051095
-KNN med normaliserad data från DF2,"{'n_neighbors': 13, 'p': 1, 'weights': 'uniform'}",0.7172262773722627,0.5792700729927007
-Decision Tree med standardiserad data från DF2,"{'max_depth': 10, 'min_samples_leaf': 2, 'min_samples_split': 7}",0.49708029197080295,0.5008759124087592
-Decision Tree med normaliserad data från DF2,"{'max_depth': 7, 'min_samples_leaf': 3, 'min_samples_split': 3}",0.7226277372262774,0.5109489051094891
+XGBoost med data från DF1,"{'learning_rate': 0.2, 'max_depth': 3, 'n_estimators': 100}",0.710948905109489,0.7065693430656934
+Logistic Regression med data från DF1,"{'C': 0.5, 'penalty': 'l1'}",0.7103649635036496,0.7065693430656934
+KNN med data Från DF1,"{'n_neighbors': 13, 'p': 1, 'weights': 'uniform'}",0.6872992700729927,0.6858394160583942
+Decision Tree med data DF1,"{'max_depth': 6, 'min_samples_leaf': 5, 'min_samples_split': 3}",0.7045255474452555,0.7043795620437956
+XGBoost med data från DF2,"{'learning_rate': 0.2, 'max_depth': 3, 'n_estimators': 100}",0.7297810218978102,0.742043795620438
+Logistic Regression med data från DF2,"{'C': 0.1, 'penalty': 'l1'}",0.7251094890510948,0.7324087591240875
+KNN med data från DF2,"{'n_neighbors': 13, 'p': 1, 'weights': 'uniform'}",0.7118248175182482,0.7167883211678832
+Decision Tree med data från DF2,"{'max_depth': 7, 'min_samples_leaf': 3, 'min_samples_split': 3}",0.7224817518248176,0.741021897810219
