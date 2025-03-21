@@ -10,6 +10,13 @@ from sklearn.metrics import accuracy_score
 import pandas as pd
 import os
 
+
+"""
+Delen med hyperparametrar har jag tagit inspiration från sklearn dokumentationen och StackOverflow
+för att hitta rimliga nivåer.
+
+"""
+
 # Logistic regression
 
 param_grid_linearregression = {

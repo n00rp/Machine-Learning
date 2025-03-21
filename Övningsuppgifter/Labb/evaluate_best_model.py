@@ -9,7 +9,11 @@ from sklearn.neighbors import KNeighborsClassifier
 from sklearn.tree import DecisionTreeClassifier
 from xgboost import XGBClassifier
 
+"""
+Även denna delen har det behövts mycket hjälp, dock hade jag mycket av strukturen sedan innan
+med tanke på att ensemble.py är ganska lik i sin struktur.
 
+"""
 
 # Bästa parametrarna för respektive modell utifrån tidigare tester på DF2
 BEST_PARAMS = {

@@ -9,6 +9,13 @@ from sklearn.neighbors import KNeighborsClassifier
 from sklearn.tree import DecisionTreeClassifier
 from xgboost import XGBClassifier
 
+"""
+Det skall sägas att jag fått en hel del syntax-hjälp på denna delen då det var ganska mycket nytt
+för mig. Dock är ingen kod kopierad utan enbart tagit hjälp från diverse forum och liknande.
+
+"""
+
+
 # Bästa parametrarna för respektive modell utifrån tidigare tester på DF2
 BEST_PARAMS = {
     'XGBoost': {'learning_rate': 0.2, 'max_depth': 3, 'n_estimators': 100},

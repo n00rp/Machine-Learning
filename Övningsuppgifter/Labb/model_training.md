@@ -1,27 +1,6 @@
 # Model Training - Kardiovaskulär sjukdomsprediktion
 
-Denna fil innehåller kod för att träna och utvärdera olika maskininlärningsmodeller för prediktion av kardiovaskulära sjukdomar. Koden använder GridSearchCV för att hitta optimala hyperparametrar för varje modell och utvärderar modellernas prestanda på både validerings- och testdata.
-
-## Modeller och parametergrids
-
-### Logistic Regression
-- **C**: [0.1, 0.5, 1, 10, 100] - Regulariseringsstyrka (lägre värde = starkare regularisering)
-- **penalty**: ['l1', 'l2'] - Typ av regularisering (L1 eller L2)
-
-### XGBoost
-- **learning_rate**: [0.001, 0.01, 0.1, 0.2] - Inlärningstakt för modellen
-- **max_depth**: [3, 5, 7, 9] - Maximalt djup för varje beslutsträd
-- **n_estimators**: [50, 100, 200] - Antal träd i ensemblen
-
-### K-Nearest Neighbors (KNN)
-- **n_neighbors**: [5, 7, 9, 11, 13] - Antal grannar att beakta
-- **weights**: ['uniform', 'distance'] - Viktning av grannar
-- **p**: [1, 2] - Distansmått (1 = Manhattan, 2 = Euklidisk)
-
-### Decision Tree
-- **max_depth**: [4, 5, 6, 7, 8, 9, 10] - Maximalt djup för trädet
-- **min_samples_split**: [3, 5, 6, 7, 10, 20] - Minsta antal sampel för att dela en nod
-- **min_samples_leaf**: [2, 3, 4, 5, 6, 7, 8] - Minsta antal sampel i ett löv
+Denna fil innehåller kod för att träna och utvärdera olika maskininlärningsmodeller för prediktion av datan. Koden använder GridSearchCV för att hitta optimala hyperparametrar för varje modell och utvärderar modellernas prestanda på både validerings- och testdata.
 
 ## Huvudfunktioner
 
@@ -49,4 +28,4 @@ Resultaten från modellträningen sparas i "evaluation_scores.csv" med följande
 - Validation Accuracy: Noggrannhet på valideringsdata
 - Test Accuracy: Noggrannhet på testdata
 
-Denna systematiska utvärdering av modeller möjliggör en objektiv jämförelse av olika algoritmer och identifiering av den bästa modellen för kardiovaskulär sjukdomsprediktion.
+Denna systematiska utvärdering av modeller möjliggör en objektiv jämförelse av olika algoritmer och identifiering av den bästa modellen.
