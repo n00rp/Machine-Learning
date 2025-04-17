@@ -95,5 +95,3 @@ Labbar/
 - Streamlit: https://streamlit.io/
 - Blog med handledning för att skapa systemet med TF-IDF: https://dev.to/jesse_adu_akowuah_/building-a-movie-recommendation-system-with-streamlit-and-python-5bkm
 
-
-
